@@ -3,9 +3,9 @@ using MemoGame.Services;
 
 namespace MemoGame.Views;
 
-public partial class GamePage : ContentPage
+public partial class GamePage : ContentPage // Страница игры
 {
-    private readonly GameEngine _engine;
+    private readonly GameEngine _engine; // Игровой движок
 
     // Кэш кнопок, чтобы быстро обновлять UI при изменении карточек
     private readonly Dictionary<CardModel, Button> _buttons = new();
@@ -20,13 +20,13 @@ public partial class GamePage : ContentPage
         _engine.CardUpdated += OnCardUpdated;
         _engine.GameFinished += OnGameFinished;
 
-        PlayerLabel.Text = $"Игрок: {player.Name}";
+        PlayerLabel.Text = $"Игрок: {player.Name}"; // Показываем имя игрока
         Start();
     }
 
-    private void Start()
+    private void Start() // Запуск новой игры
     {
-        _buttons.Clear();
+        _buttons.Clear(); // Очищаем кэш кнопок
         BoardGrid.Children.Clear();
         BoardGrid.RowDefinitions.Clear();
         BoardGrid.ColumnDefinitions.Clear();

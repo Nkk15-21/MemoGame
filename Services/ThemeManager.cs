@@ -2,18 +2,18 @@
 
 namespace MemoGame.Services;
 
-/// <summary>
-/// Менеджер тем. Подменяет динамические ресурсы Application.
-/// </summary>
-public enum AppThemeName { Light, Dark, Colorful }
 
-public class ThemeManager
+// Менеджер тем. Подменяет динамические ресурсы Application.
+
+public enum AppThemeName { Light, Dark, Colorful } // возможные темы
+
+public class ThemeManager // менеджер тем
 {
     private const string PrefKey = "app_theme";
 
     public AppThemeName CurrentTheme { get; private set; } = AppThemeName.Dark;
 
-    public void ApplySavedOrDefaultTheme(Application app)
+    public void ApplySavedOrDefaultTheme(Application app) // применить сохранённую или тему по умолчанию
     {
         // читаем сохранённую тему
         var saved = Preferences.Get(PrefKey, nameof(AppThemeName.Dark));
@@ -23,7 +23,7 @@ public class ThemeManager
             ApplyTheme(app, AppThemeName.Dark);
     }
 
-    public void ApplyTheme(Application app, AppThemeName theme)
+    public void ApplyTheme(Application app, AppThemeName theme) // применить тему
     {
         CurrentTheme = theme;
         Preferences.Set(PrefKey, theme.ToString());
