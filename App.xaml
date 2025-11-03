@@ -1,14 +1,49 @@
-﻿<?xml version = "1.0" encoding = "UTF-8" ?>
-<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:MemoGame"
-             x:Class="MemoGame.App">
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application
+    x:Class="MemoGame.App"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
     <Application.Resources>
         <ResourceDictionary>
+
+            <!-- твои динамические цвета для темы (можно оставить как есть) -->
+            <Color x:Key="BgColor">#121212</Color>
+            <Color x:Key="CardColor">#1f1f1f</Color>
+            <Color x:Key="AccentColor">#4caf50</Color>
+            <Color x:Key="TextColor">#ffffff</Color>
+
+            <Style TargetType="ContentPage">
+                <Setter Property="BackgroundColor" Value="{DynamicResource BgColor}"/>
+            </Style>
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="{DynamicResource TextColor}"/>
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{DynamicResource AccentColor}"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="CornerRadius" Value="12"/>
+                <Setter Property="Padding" Value="12,10"/>
+            </Style>
+
+            <Style x:Key="CardButtonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{DynamicResource CardColor}"/>
+                <Setter Property="TextColor" Value="{DynamicResource TextColor}"/>
+                <Setter Property="CornerRadius" Value="16"/>
+                <Setter Property="FontSize" Value="28"/>
+                <Setter Property="Padding" Value="0"/>
+                <Setter Property="HeightRequest" Value="72"/>
+                <Setter Property="WidthRequest" Value="72"/>
+            </Style>
+
+            <!-- ВАЖНО: подключаем внешние словари в правильном порядке -->
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
-                <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
+                <!-- Сначала цвета (в них определены Primary, Gray*, MidnightBlue и т.д.) -->
+                <ResourceDictionary Source="/Resources/Styles/Colors.xaml" />
+                <!-- Затем стили (там лежит Headline, SubHeadline и прочее) -->
+                <ResourceDictionary Source="/Resources/Styles/Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

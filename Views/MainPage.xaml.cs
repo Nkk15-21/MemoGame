@@ -1,8 +1,7 @@
 ﻿using MemoGame.Models;
 using MemoGame.Services;
-using MemoGame.Views;
 
-namespace MemoGame;
+namespace MemoGame.Views;
 
 public partial class MainPage : ContentPage
 {
@@ -24,7 +23,10 @@ public partial class MainPage : ContentPage
     {
         var name = string.IsNullOrWhiteSpace(NameEntry.Text) ? "Player" : NameEntry.Text.Trim();
         var player = new Player { Name = name };
+
+        // настройки можно расширять (выбор сложности), пока фиксировано 4x4
         var settings = new GameSettings { Rows = 4, Cols = 4 };
+
         await Navigation.PushAsync(new GamePage(settings, player));
     }
 
@@ -41,6 +43,6 @@ public partial class MainPage : ContentPage
     protected override void OnAppearing()
     {
         base.OnAppearing();
-        UpdateBest();
+        UpdateBest(); // обновляем лучший результат при возврате на главную
     }
 }

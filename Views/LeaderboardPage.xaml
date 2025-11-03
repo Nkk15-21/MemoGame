@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MemoGame.Views.LeaderboardPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Рекорды">
+
+    <VerticalStackLayout Padding="16" Spacing="8">
+        <CollectionView x:Name="ScoresView">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid ColumnDefinitions="Auto,*,Auto" Padding="8" BackgroundColor="{DynamicResource CardColor}">
+                        <Label Grid.Column="0" Text="{Binding Player}" FontAttributes="Bold"/>
+                        <Label Grid.Column="1" Text="{Binding Date, StringFormat='{}{0:dd.MM.yyyy HH:mm}'}" HorizontalOptions="Center"/>
+                        <Label Grid.Column="2" Text="{Binding ., Converter={StaticResource ScoreTextConverter}}"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Label x:Name="EmptyLabel" Text="Пока рекордов нет" IsVisible="False" Opacity="0.8" />
+    </VerticalStackLayout>
+</ContentPage>
