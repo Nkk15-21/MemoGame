@@ -3,10 +3,10 @@ using System.Runtime.CompilerServices;
 
 namespace MemoGame.Models;
 
-/// <summary>
-/// Модель карточки (элемент игры).
-/// Реализует INotifyPropertyChanged, чтобы UI обновлялся при изменениях.
-/// </summary>
+
+// Модель карточки (элемент игры).
+// Реализует INotifyPropertyChanged, чтобы UI обновлялся при изменениях.
+
 public class CardModel : INotifyPropertyChanged
 {
     public Guid Id { get; } = Guid.NewGuid(); // уникальный идентификатор пары

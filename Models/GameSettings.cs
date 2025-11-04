@@ -1,8 +1,8 @@
 ﻿namespace MemoGame.Models;
 
-/// <summary>
-/// Настройки игры (размерность поля, набор символов и т.п.).
-/// </summary>
+
+// Настройки игры (размерность поля, набор символов и т.п.).
+
 public class GameSettings
 {
     public int Rows { get; set; } = 4;   // 4x4 — 8 пар

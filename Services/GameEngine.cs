@@ -8,8 +8,8 @@ namespace MemoGame.Services;
 /// </summary>
 public class GameEngine
 {
-    public GameSettings Settings { get; }
-    public Player Player { get; }
+    public GameSettings Settings { get; }                       // настройки игры
+    public Player Player { get; }                               // игрок
 
     public List<CardModel> Cards { get; private set; } = new(); // все карточки
     public int Moves { get; private set; } = 0;                  // количество ходов (попыток)
@@ -25,25 +25,25 @@ public class GameEngine
     public event Action? BoardGenerated;                         // оповещение — поле готово
     public event Action<TimeSpan, int>? GameFinished;            // конец игры (время, ходы)
 
-    public GameEngine(GameSettings settings, Player player)
+    public GameEngine(GameSettings settings, Player player)     // конструктор
     {
         Settings = settings;
         Player = player;
     }
 
-    /// <summary>Запуск новой игры.</summary>
+    //Запуск новой игры
     public void StartNew()
     {
-        _sw.Restart();
-        Moves = 0;
-        Matches = 0;
-        _first = _second = null;
-        IsBusy = false;
-        GenerateBoard();
-        BoardGenerated?.Invoke();
+        _sw.Restart();// запуск таймера
+        Moves = 0;// сброс количества ходов
+        Matches = 0;// сброс количества найденных пар
+        _first = _second = null;// сброс выбранных карточек
+        IsBusy = false;// снятие блокировки
+        GenerateBoard();// генерация игрового поля
+        BoardGenerated?.Invoke();// оповещение, что поле готово
     }
 
-    private void GenerateBoard()
+    private void GenerateBoard()// генерация игрового поля
     {
         // Набор эмодзи (16 уникальных — хватит на поле 4x4 => 8 пар)
         var symbols = new List<string>

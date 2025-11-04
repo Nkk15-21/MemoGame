@@ -39,7 +39,7 @@ public partial class GamePage : ContentPage // Страница игры
         MatchesLabel.Text = $"Пары: 0 / {_engine.Cards.Count / 2}";
     }
 
-    private void BuildBoard()
+    private void BuildBoard() // Построение UI игрового поля
     {
         // Конструируем сетку: Rows x Cols
         for (int r = 0; r < _engine.Settings.Rows; r++)

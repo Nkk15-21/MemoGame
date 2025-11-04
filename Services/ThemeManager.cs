@@ -35,24 +35,24 @@ public class ThemeManager // менеджер тем
         switch (theme)
         {
             case AppThemeName.Light:
-                r["BgColor"] = Color.FromArgb("#FAFAFA");
-                r["CardColor"] = Color.FromArgb("#FFFFFF");
-                r["AccentColor"] = Color.FromArgb("#1976d2");
-                r["TextColor"] = Color.FromArgb("#111111");
+                r["BgColor"] = Color.FromArgb("#FAFAFA");// светлый фон
+                r["CardColor"] = Color.FromArgb("#FFFFFF");// белые карточки
+                r["AccentColor"] = Color.FromArgb("#1976d2");// синий акцент
+                r["TextColor"] = Color.FromArgb("#111111");// тёмный текст
                 break;
 
             case AppThemeName.Dark:
-                r["BgColor"] = Color.FromArgb("#121212");
-                r["CardColor"] = Color.FromArgb("#1f1f1f");
-                r["AccentColor"] = Color.FromArgb("#4caf50");
-                r["TextColor"] = Color.FromArgb("#ffffff");
+                r["BgColor"] = Color.FromArgb("#121212");// тёмный фон
+                r["CardColor"] = Color.FromArgb("#1f1f1f");// тёмные карточки
+                r["AccentColor"] = Color.FromArgb("#4caf50");// зелёный акцент
+                r["TextColor"] = Color.FromArgb("#ffffff");// светлый текст
                 break;
 
             case AppThemeName.Colorful:
-                r["BgColor"] = Color.FromArgb("#0e0a1f");
-                r["CardColor"] = Color.FromArgb("#2a1b3d");
-                r["AccentColor"] = Color.FromArgb("#ff6f00");
-                r["TextColor"] = Color.FromArgb("#ffecb3");
+                r["BgColor"] = Color.FromArgb("#0e0a1f");// тёмный фиолетовый фон
+                r["CardColor"] = Color.FromArgb("#2a1b3d");// фиолетовые карточки
+                r["AccentColor"] = Color.FromArgb("#ff6f00");// оранжевый акцент
+                r["TextColor"] = Color.FromArgb("#ffecb3");// светлый текст с жёлтым оттенком
                 break;
         }
     }
